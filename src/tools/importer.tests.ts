@@ -2,8 +2,8 @@ import { access, constants } from "fs";
 import { Importer } from "./importer";
 
 const { F_OK } = constants;
-const sample_reference_data_path = "src/sample_data/reference-data.txt";
-const sample_scores_path = "src/sample_data/scores.txt";
+const sample_reference_data_path = "src/testData/reference-data.txt";
+const sample_scores_path = "src/testData/scores.txt";
 
 describe("Before Importing Data", () => {
   it("Must ensure that the sample data files exist", () => {
