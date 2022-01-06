@@ -1,0 +1,70 @@
+Pantitlán - Tacubaya Monday 7.89
+Pantitlán - Tacubaya Sunday 5.97
+Pantitlán - Tacubaya Tuesday 5.79
+Pantitlán - Tacubaya Wednesday 2.97
+Pantitlán - Tacubaya Thursday 2.0
+Pantitlán - Tacubaya Friday 1.92
+Pantitlán - Tacubaya Saturday 1.0
+Cuatro Caminos - Tasqueña Monday 7.98
+Cuatro Caminos - Tasqueña Sunday 5.97
+Cuatro Caminos - Tasqueña Tuesday 5.94
+Cuatro Caminos - Tasqueña Wednesday 2.92
+Cuatro Caminos - Tasqueña Thursday 2.0
+Cuatro Caminos - Tasqueña Friday 1.95
+Cuatro Caminos - Tasqueña Saturday 1.0
+Politécnico - Pantitlán Tuesday 7.93
+Politécnico - Pantitlán Wednesday 5.9
+Politécnico - Pantitlán Monday 5.78
+Politécnico - Pantitlán Sunday 2.98
+Politécnico - Pantitlán Thursday 2.91
+Politécnico - Pantitlán Friday 2.0
+Politécnico - Pantitlán Saturday 1.97
+Pantitlán - Observatorio Sunday 7.93
+Pantitlán - Observatorio Monday 5.74
+Pantitlán - Observatorio Tuesday 2.97
+Pantitlán - Observatorio Wednesday 2.0
+Pantitlán - Observatorio Thursday 1.94
+Pantitlán - Observatorio Saturday 1.4
+Pantitlán - Observatorio Friday 1.0
+Indios Verdes - Universidad Friday 7.96
+Indios Verdes - Universidad Saturday 6.0
+Indios Verdes - Universidad Thursday 5.67
+Indios Verdes - Universidad Wednesday 2.96
+Indios Verdes - Universidad Tuesday 2.0
+Indios Verdes - Universidad Monday 1.93
+Indios Verdes - Universidad Sunday 1.0
+El Rosario - Martín Carrera Wednesday 7.91
+El Rosario - Martín Carrera Thursday 5.86
+El Rosario - Martín Carrera Tuesday 5.79
+El Rosario - Martín Carrera Monday 2.93
+El Rosario - Martín Carrera Friday 2.93
+El Rosario - Martín Carrera Sunday 2.0
+El Rosario - Martín Carrera Saturday 2.0
+Pantitlán - La Paz Saturday 7.87
+Pantitlán - La Paz Friday 5.82
+Pantitlán - La Paz Thursday 2.92
+Pantitlán - La Paz Wednesday 2.0
+Pantitlán - La Paz Tuesday 1.98
+Pantitlán - La Paz Sunday 1.26
+Pantitlán - La Paz Monday 1.0
+Garibaldi - Constitución de 1917 Thursday 7.84
+Garibaldi - Constitución de 1917 Friday 5.9
+Garibaldi - Constitución de 1917 Wednesday 5.81
+Garibaldi - Constitución de 1917 Saturday 2.98
+Garibaldi - Constitución de 1917 Tuesday 2.95
+Garibaldi - Constitución de 1917 Monday 2.0
+Garibaldi - Constitución de 1917 Sunday 1.96
+Ciudad Azteca - Buenavista Sunday 7.89
+Ciudad Azteca - Buenavista Monday 5.72
+Ciudad Azteca - Buenavista Tuesday 2.95
+Ciudad Azteca - Buenavista Wednesday 2.0
+Ciudad Azteca - Buenavista Thursday 1.98
+Ciudad Azteca - Buenavista Saturday 1.23
+Ciudad Azteca - Buenavista Friday 1.0
+El Rosario - Barranca del Muerto Tuesday 7.85
+El Rosario - Barranca del Muerto Wednesday 5.81
+El Rosario - Barranca del Muerto Monday 5.77
+El Rosario - Barranca del Muerto Sunday 2.98
+El Rosario - Barranca del Muerto Thursday 2.96
+El Rosario - Barranca del Muerto Friday 2.0
+El Rosario - Barranca del Muerto Saturday 1.98
