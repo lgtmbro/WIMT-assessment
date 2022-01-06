@@ -27,7 +27,7 @@ describe("RE: When working with Reference Data", () => {
     ]);
   });
 
-  it("The referenceDataRouteIdentifier RE should spit out Route Name EG: Ciudad Azteca - Buenavista", () => {
+  it("The referenceDataRouteName RE should spit out Route Name EG: Ciudad Azteca - Buenavista", () => {
     expect(ReferenceDataSample.match(referenceDataRouteName)).toEqual([
       "Ciudad Azteca - Buenavista",
       "Cuatro Caminos - Tasqueña",
