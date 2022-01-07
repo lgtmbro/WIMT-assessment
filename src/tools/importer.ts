@@ -2,9 +2,12 @@
 // import { FileReadOptions, open } from "fs/promises";
 import { FileImporter } from "./fileImporter";
 
-export class Importer {
-  public fileImporter: FileImporter | undefined = undefined;
+interface IImporter {
+  fileImporter: FileImporter;
+}
 
+export class Importer implements IImporter {
+  public fileImporter: FileImporter;
   constructor(fileImporter: FileImporter) {
     this.fileImporter = fileImporter;
   }

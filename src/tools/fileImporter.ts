@@ -14,6 +14,7 @@ export class FileImporter {
     try {
       const file = await open(this.filePath, "r");
       this.fileData = await file.readFile("utf-8");
+      file.close();
       return true;
     } catch (e) {
       return false;
