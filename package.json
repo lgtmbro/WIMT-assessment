@@ -1,8 +1,11 @@
 {
-  "name": "wimt_assessment",
+  "name": "transport-feedback-scoring-assessment",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./src/app.js",
   "repository": "git@github.com:callumDOTbuzz/WIMT-assessment.git",
+  "author": {
+    "name": "Callum Fleming"
+  },
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.16.7",
@@ -17,7 +20,8 @@
   },
   "scripts": {
     "dev": "ts-node-dev ./src/app.ts",
-    "test": "jest --watchAll",
-    "compile": "rm -rf ./dist && tsc"
+    "test": "jest",
+    "test:watch": "jest --watchAll",
+    "build": "rm -rf ./dist && tsc"
   }
 }

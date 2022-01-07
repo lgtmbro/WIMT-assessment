@@ -17,12 +17,12 @@ describe("Before Importing Data", () => {
   });
 });
 
-describe("When opening the reference file", () => {
-  it("It should ingest the file provided", async () => {
-    const referenceData = new Importer(sample_reference_data_path);
-    expect(referenceData).toBeDefined();
-    expect(referenceData.filePath).toBe(sample_reference_data_path);
-    expect(await referenceData.start()).toBeUndefined();
-    expect(referenceData.fileData).not.toBeNull();
-  });
-});
+// describe("When opening the reference file", () => {
+//   it("It should ingest the file provided", async () => {
+//     const referenceData = new Importer(sample_reference_data_path);
+//     expect(referenceData).toBeDefined();
+//     expect(referenceData.filePath).toBe(sample_reference_data_path);
+//     expect(await referenceData.start()).toBeUndefined();
+//     expect(referenceData.fileData).not.toBeNull();
+//   });
+// });
