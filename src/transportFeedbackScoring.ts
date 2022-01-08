@@ -112,10 +112,16 @@ export class TransportFeedbackScoring implements ITransportFeedbackScoring {
         Object.keys(routeNameIndex).includes(val) &&
         !["0", "10"].includes(scoreScoreArr[index])
       ) {
-        const dayOfTheWeek = new Date(scoreDateArr[index]).toLocaleString(
-          "en-ZA",
-          { weekday: "long" }
-        );
+        const dayOfTheWeek =
+          [
+            "Sunday",
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+          ].at(new Date(scoreDateArr[index]).getUTCDay()) || "";
 
         const sentimentIdentifier = routeNameIndex[val];
 
@@ -159,7 +165,7 @@ export class TransportFeedbackScoring implements ITransportFeedbackScoring {
         });
     }
 
-    // console.log(output.join("\n"));
+    console.log(output.join("\n"));
     // console.log(Object.keys(routeNameIndex));
     // console.log(refRouteNameArr);
   }
