@@ -6,13 +6,13 @@ import {
   scoresDataScore,
 } from "./regularExpressions";
 
-const referenceDataSample =
+export const referenceDataSample =
   "route_f97ad4ff-0f3c-4ecb-88bc-ff2e35135bb2 METRO;Ciudad Azteca - Buenavista\n\
 route_cc4722b0-db3b-4732-9e5f-456325d59ffe METRO;Cuatro Caminos - Tasqueña\n\
 route_29eac9a5-0133-4f1e-b69e-6eb8046c0c71 METRO;El Rosario - Barranca del Muerto\n\
 ";
 
-const scoresDataSample =
+export const scoresDataSample =
   "\
 2021/11/08 route_f97ad4ff-0f3c-4ecb-88bc-ff2e35135bb2 0\n\
 2021/11/17 route_cc4722b0-db3b-4732-9e5f-456325d59ffe 6\n\

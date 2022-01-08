@@ -21,7 +21,7 @@ export class TransportFeedbackScoring implements ITransportFeedbackScoring {
   ScoreParser: ExpressionParser | undefined;
 
   referenceDataFile: FileImporter;
-  ReferenceDataParser: ExpressionParser;
+  ReferenceDataParser: ExpressionParser | undefined;
 
   constructor(scoreFile: FileImporter, referenceDataFile: FileImporter) {
     this.scoreFile = scoreFile;
@@ -86,15 +86,81 @@ export class TransportFeedbackScoring implements ITransportFeedbackScoring {
     await this.importFiles();
     this.parseFiles();
 
-    const refernceData: Array<Array<String>> = [];
-    this.ReferenceDataParser?.results.forEach((value, key) => {
-      refernceData.push(value);
+    const refRouteNameArr = this.ReferenceDataParser?.results.get("routeName");
+    const refRouteIdentifierArr =
+      this.ReferenceDataParser?.results.get("routeIdentifier");
+
+    const routeNameIndex: { [key: string]: string } = {};
+    refRouteIdentifierArr?.forEach((val: string, index: number) => {
+      routeNameIndex[val] = refRouteNameArr?.at(index) || "";
+      //   console.log("create", val, refRouteNameArr?.at(index) || "");
     });
 
-    this.ReferenceDataParser.console.log(refernceData);
+    const scoreRouteIdentifierArr =
+      this.ScoreParser?.results.get("routeIdentifier");
+    const scoreDateArr = this.ScoreParser?.results.get("date") || [];
+    const scoreScoreArr = this.ScoreParser?.results.get("score") || [];
 
-    // for (const [key, value] of .entries()) {
-    //   console.log(key, value.length);
-    // }
+    const sentimentScores: {
+      [routeName: string]: {
+        [dayOfTheWeek: string]: { count: number; total: number; score: number };
+      };
+    } = {};
+
+    scoreRouteIdentifierArr?.forEach((val: string, index: number) => {
+      if (
+        Object.keys(routeNameIndex).includes(val) &&
+        !["0", "10"].includes(scoreScoreArr[index])
+      ) {
+        const dayOfTheWeek = new Date(scoreDateArr[index]).toLocaleString(
+          "en-ZA",
+          { weekday: "long" }
+        );
+
+        const sentimentIdentifier = routeNameIndex[val];
+
+        if (!sentimentScores[sentimentIdentifier]) {
+          sentimentScores[sentimentIdentifier] = {};
+        }
+
+        if (!sentimentScores[sentimentIdentifier][dayOfTheWeek]) {
+          sentimentScores[sentimentIdentifier][dayOfTheWeek] = {
+            count: 0,
+            score: 0,
+            total: 0,
+          };
+        }
+
+        sentimentScores[sentimentIdentifier][dayOfTheWeek];
+
+        sentimentScores[sentimentIdentifier][dayOfTheWeek].total += Number(
+          scoreScoreArr[index]
+        );
+        sentimentScores[sentimentIdentifier][dayOfTheWeek].count++;
+        sentimentScores[sentimentIdentifier][dayOfTheWeek].score =
+          sentimentScores[sentimentIdentifier][dayOfTheWeek].total /
+          sentimentScores[sentimentIdentifier][dayOfTheWeek].count;
+      } else {
+        // console.log("failed", val);
+      }
+    });
+
+    const output: String[] = [];
+    for (const location in sentimentScores) {
+      const days = [];
+      for (const day in sentimentScores[location]) {
+        days.push([sentimentScores[location][day].score.toFixed(2), day]);
+      }
+      days
+        .sort()
+        .reverse()
+        .map(([score, day]) => {
+          output.push(`${location} ${day} ${score}`);
+        });
+    }
+
+    // console.log(output.join("\n"));
+    // console.log(Object.keys(routeNameIndex));
+    // console.log(refRouteNameArr);
   }
 }

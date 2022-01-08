@@ -3,7 +3,7 @@ import { open } from "fs/promises";
 
 export class FileImporter {
   public filePath: PathLike;
-  public fileData: String;
+  public fileData: string;
 
   constructor(filePath: PathLike) {
     this.filePath = filePath;
