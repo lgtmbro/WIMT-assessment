@@ -22,7 +22,6 @@ export class FileImporter implements IFileImporter {
       file.close();
       return true;
     } catch (e) {
-      // console.error(e);
       return false;
     }
   }
