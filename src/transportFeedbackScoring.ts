@@ -1,5 +1,6 @@
 import { execPath } from "process";
 import { ExpressionParser } from "./tools/expressionParser";
+import { FileExporter } from "./tools/fileExporter";
 import { FileImporter } from "./tools/fileImporter";
 import {
   referenceDataAgency,
@@ -14,6 +15,7 @@ interface ITransportFeedbackScoring {
   referenceDataFile: FileImporter;
   ScoreParser: ExpressionParser | undefined;
   ReferenceDataParser: ExpressionParser | undefined;
+  outputExport: FileExporter;
 }
 
 export class TransportFeedbackScoring implements ITransportFeedbackScoring {
@@ -23,14 +25,21 @@ export class TransportFeedbackScoring implements ITransportFeedbackScoring {
   referenceDataFile: FileImporter;
   ReferenceDataParser: ExpressionParser | undefined;
 
-  constructor(scoreFile: FileImporter, referenceDataFile: FileImporter) {
+  outputExport: FileExporter;
+
+  constructor(
+    scoreFile: FileImporter,
+    referenceDataFile: FileImporter,
+    outputExport: FileExporter
+  ) {
     this.scoreFile = scoreFile;
     this.referenceDataFile = referenceDataFile;
+    this.outputExport = outputExport;
   }
 
   async importFiles() {
     const files = [this.scoreFile, this.referenceDataFile];
-    const promises = files.map((file) => file.import());
+    const promises = files.map((fileImport) => fileImport.run());
     const res = await Promise.all(promises);
 
     for (const file in res) {
@@ -82,7 +91,7 @@ export class TransportFeedbackScoring implements ITransportFeedbackScoring {
     this.ReferenceDataParser.run();
   }
 
-  async run() {
+  async run(): Promise<Boolean> {
     await this.importFiles();
     this.parseFiles();
 
@@ -93,7 +102,6 @@ export class TransportFeedbackScoring implements ITransportFeedbackScoring {
     const routeNameIndex: { [key: string]: string } = {};
     refRouteIdentifierArr?.forEach((val: string, index: number) => {
       routeNameIndex[val] = refRouteNameArr?.at(index) || "";
-      //   console.log("create", val, refRouteNameArr?.at(index) || "");
     });
 
     const scoreRouteIdentifierArr =
@@ -146,8 +154,6 @@ export class TransportFeedbackScoring implements ITransportFeedbackScoring {
         sentimentScores[sentimentIdentifier][dayOfTheWeek].score =
           sentimentScores[sentimentIdentifier][dayOfTheWeek].total /
           sentimentScores[sentimentIdentifier][dayOfTheWeek].count;
-      } else {
-        // console.log("failed", val);
       }
     });
 
@@ -165,8 +171,9 @@ export class TransportFeedbackScoring implements ITransportFeedbackScoring {
         });
     }
 
-    console.log(output.join("\n"));
-    // console.log(Object.keys(routeNameIndex));
-    // console.log(refRouteNameArr);
+    if (await this.outputExport.run("results.txt", output.join("\n"))) {
+      return true;
+    }
+    return false;
   }
 }
