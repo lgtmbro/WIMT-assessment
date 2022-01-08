@@ -22,7 +22,8 @@
     "dev": "ts-node-dev ./src/app.ts",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "build": "rm -rf ./dist && tsc",
+    "build:remove": "node ./removeDist",
+    "build": "npm run build:remove && tsc",
     "start": "node ./dist/app.js",
     "all:unix": "npm test && npm run build && time npm start",
     "all": "npm test && npm run build && npm start"
